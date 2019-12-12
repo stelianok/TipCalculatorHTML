@@ -5,9 +5,41 @@
 	<title>Tip Calculator</title>
 </head>
 <body>
+	
 	<div> <h1>Tip Calculator </h1> <div>
 
-		How much was your Bill?
+		How much was your Bill? <br>
+		$<input type="text" id = "bill" name = "bill"> <br>
 
+		How Was your Service? <br>
+		<select id = "serviceQuality">
+			<option value = "30"> 30% outstanding</option>
+			<option value =  "20"> 20% good</option> 
+			<option value = "15"> 15% it was ok</option>
+			<option value = "10">10% bad</option>
+			<option value=  "5">5% terrible</option>
+		</select> <br>
+
+		How many people are sharing the bill? <br>
+		<input type = "text" id = "people" name = "people"> <br>
+
+		<button onclick="calculate()"> Calculate! </button>
+		<script>
+
+			function calculate(){
+				// tip = bill * (serviceQuality / 100) / peopleSharing
+				var bill = document.getElementById("bill").value;
+				var serviceQuality  = document.getElementById("serviceQuality").value;
+				var peopleSharing = document.getElementById("people").value;
+				var tip = bill * (serviceQuality / 100) / peopleSharing;
+				
+				
+				console.log(bill)
+				console.log(serviceQuality);
+				console.log(peopleSharing);
+
+
+			}
+		</script>
 </body>
 </html>
