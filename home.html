@@ -22,7 +22,7 @@
 
 		How many people are sharing the bill? <br>
 		<input type = "text" id = "people" name = "people"> <br>
-
+		Tip: <span id = "result">0.00</span> <br>
 		<button onclick="calculate()"> Calculate! </button>
 		<script>
 
@@ -33,10 +33,18 @@
 				var peopleSharing = document.getElementById("people").value;
 				var tip = bill * (serviceQuality / 100) / peopleSharing;
 				
-				
-				console.log(bill)
-				console.log(serviceQuality);
-				console.log(peopleSharing);
+				if(bill === "" || serviceQuality == 0){
+					alert("Please enter values");
+					return;
+				}
+				if(peopleSharing === "" || peopleSharing <= 1){
+					peopleSharing = 1;
+				}
+				document.getElementById("result").innerHTML = tip		
+				console.log("Bill: ", bill);
+				console.log("Service Quality: ",serviceQuality);
+				console.log("People Sharing: ",peopleSharing);
+				console.log("Tip: ", tip)
 
 
 			}
